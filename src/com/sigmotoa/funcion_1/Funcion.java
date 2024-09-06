@@ -1,3 +1,4 @@
+package com.sigmotoa.funcion_1;
 
 import java.util.Scanner;
 
@@ -7,6 +8,9 @@ public class Funcion
     {
         Scanner leer = new Scanner(System.in);
         int a,b,z,opc;
+        int [][] num;
+        int []arre;
+        int [][] bo;
         System.out.println("Hello, type your name");
         String name = leer.next();
         do {
@@ -18,7 +22,13 @@ public class Funcion
             System.out.println("6.Area circulo");
             System.out.println("7.Volumen de un cono");
             System.out.println("8.numeros serie de fibonacci");
-            System.out.println("9.Salir");
+            System.out.println("9.Mayor y menor");
+            System.out.println("10.Suma de arreglo.");
+            System.out.println("11.Multplicar matrizes");
+            System.out.println("12.Promedio de arreglo");
+            System.out.println("13.Metodo de burbuja.");
+            System.out.println("14.trasnpuesta. ");
+            System.out.println("20.Salir");
             opc = leer.nextInt();
             switch (opc) {
                 case 1: {
@@ -72,6 +82,39 @@ public class Funcion
                 break;
                 case 9:
                 {
+                    num=rellenar();
+                    mayor(num);
+
+                } break;
+                case 10:{
+                     num = rellenar();
+                     sumarg(num);
+                }break;
+                case 11:
+                {
+                   num=rellenar();
+                   bo=rellenar();
+                   multmtz(num,bo);
+
+                } break;
+                case 12:
+                {
+                    num=rellenar();
+                    promedio(num);
+
+                } break;
+                case 13:
+                {
+                    arre=arreglo();
+                    burbuja(arre);
+                } break;
+                case 14:
+                {
+                    num=rellenar();
+                    trasnponer(num);
+                } break;
+                case 20:
+                {
                     System.out.println(name + "Hasta luego ");
                 } break;
                 default:
@@ -79,7 +122,7 @@ public class Funcion
                     System.out.println("ingreso un opcion no valida");
                 }
             }
-        } while(opc !=9);
+        } while(opc !=20);
     }
    //funcion 1//
     public static int Suma(int x,int y)
@@ -91,7 +134,6 @@ public class Funcion
     //funcion 2//
     public static int Multiplicacion(int x,int y)
     {
-        Scanner leer = new Scanner(System.in);
         int c, d;
         d = x;
         c = 0;
@@ -106,14 +148,11 @@ public class Funcion
     public static int Potencia(int x,int y)
     {
         int c,d;
-        c=0;
+        c=1;
         d=x;
-        for(int i=1;0<=y;i++)
+        for(int i=1;i <=y; i++)
         {
-            for(int j=1;j<=y;j++)
-            {
                 c=Multiplicacion(d,c);
-            }
         }
         System.out.println("la potencia es: "+c);
 
@@ -192,8 +231,133 @@ public class Funcion
         System.out.println("el numero "+a+" de la serie Fibonacci es: "+e);
         return e;
     }
+    public static int[] arreglo()
+    {
+        Scanner leer = new Scanner(System.in);
+        int c, num;
+        System.out.println("ingrese el numero de elementos: ");
+        c = leer.nextInt();
+        int[] x = new int[c];
+        for (int i = 0; i < c; i++)
+        {
+            System.out.println("ingrese un numero: ");
+            num = leer.nextInt();
+            x[i] = num;
+        }
+        return x;
+    }
+    //Funcion 9//
+    public static void sumarg(int [][]y)
+    {
+        int c,d=0;
+        for(int i=0;i< y.length;i++)
+        {
+           for(int j=0;j<y[i].length;j++)
+           {
+               c=y[i][j];
+               d=d+c;
+           }
+        }
+        System.out.println("la suma es: " +d);
 
+    }
+
+    public static int[][] rellenar()
+    {
+        Scanner leer = new Scanner(System.in);
+        int c,y,z;
+        System.out.println("ingrese la cantidad de filas: ");
+        y = leer.nextInt();
+        System.out.println("ingrese la cantidad de columnas: ");
+        z = leer.nextInt();
+        int [][]x = new int[y][z];
+        for(int i=0;i<y;i++)
+        {
+            for(int j=0;j<z;j++)
+            {
+                System.out.println("ingrese un numero: ");
+                c = leer.nextInt();
+                x[i][j]=c;
+            }
+        }
+        return x;
+    }
+    public static void mayor(int [][]x)
+    {
+        int mayor,menor;
+        mayor=x[0][0];
+        menor=x[0][0];
+        for(int i=0;i<x.length;i++)
+        {
+           for(int j=0;j<x[i].length;j++)
+           {
+               if(x[i][j]>mayor)
+               {
+                   mayor=x[i][j];
+               }
+                if(x[i][j]<menor)
+                {
+                    menor=x[i][j];
+                }
+           }
+        }
+        System.out.println("el numero mayor es: " +mayor);
+        System.out.println("el numero menor es: " +menor);
+    }
+    //funcion 11//
+    public static void multmtz(int [][]x ,int [][]y)
+    {
+
+    }
+    //funcion 12//
+    public static void promedio(int [][]x)
+    {
+        int c=0;
+        double promedio=0,suma=0;
+        for(int i=0;i< x.length;i++)
+        {
+            for(int j=0;j<x[i].length;j++)
+            {
+                c=x[i][j];
+                suma=suma+c;
+                promedio=suma/8;
+            }
+        }
+        System.out.println("el promedio de la matriz es: " +promedio);
+    }
+    //Mostrar//
+    //transpuesta//
+    public static void trasnponer(int [][]x)
+    {
+        for(int i=0;i<x.length;i++)
+        {
+            for(int j=0;j<x[i].length;j++)
+            {
+                System.out.println(x[j][i]+ " ");
+            }
+            System.out.println();
+        }
+    }
+    //burbuja//
+    public static void burbuja(int []x)
+    {
+        int aux;
+        for(int i=0;i<x.length;i++)
+        {
+            for(int j = 0; j< x[i]; j++)
+            {
+                if(x[j]<x[j+1])
+                {
+                    aux=x[j];
+                    x[j]=x[j+1];
+                    x[j+1]=aux;
+                }
+            }
+        }
+    }
     /*
+
+
     Crear funciones para las siguientes situaciones
     1. Sumar 2 numeros
     2. Multiplicar 2 numeros con las sumas del 1
@@ -203,6 +367,7 @@ public class Funcion
     6. Calcular el area de un circulo(recibiendo el radio)
     7. Calcular el volumen de un cono(recibiendo el radio y la altura
     8. Mostrar los n numeros de la serie de fibonacci(recibiendo n)
+    10.Suma de un arreglo y arreglo.
 
     Todas las funciones deben ser llamadas desde el Main.
      */
