@@ -111,6 +111,8 @@ public class Funcion
                 case 14:
                 {
                     num=rellenar();
+                    mostrar(num);
+                    System.out.println("La matriz transpuesta es: ");
                     trasnponer(num);
                 } break;
                 case 20:
@@ -307,7 +309,33 @@ public class Funcion
     //funcion 11//
     public static void multmtz(int [][]x ,int [][]y)
     {
+        int []c;
+        int []b;
+        int [][]z = new int[0][0];
+        int w=0;
+        for(int i=0;i< x.length;i++)
+        {
+            for(int j=0;j<x[i].length;j++)
+            {
+                c=x[i];
+            }
+        }
+        for(int i=0;i< y.length;i++)
+        {
+            for(int j=0;j<y[i].length;j++)
+            {
+                b=y[j];
+                System.out.print(b[j]);
+            }
+            System.out.println("");
+        }
+        for(int i=0;i< x.length;i++)
+        {
+            for(int j=0;j<y[i].length;j++)
+            {
 
+            }
+        }
     }
     //funcion 12//
     public static void promedio(int [][]x)
@@ -320,22 +348,33 @@ public class Funcion
             {
                 c=x[i][j];
                 suma=suma+c;
-                promedio=suma/8;
+                promedio=suma;
             }
         }
-        System.out.println("el promedio de la matriz es: " +promedio);
+        System.out.println("el promedio de la matriz es: " +(promedio/x.length));
     }
     //Mostrar//
+    public static void mostrar(int [][]y)
+    {
+        for(int i=0;i<y.length;i++)
+        {
+            for(int j=0;j<y[i].length;j++)
+            {
+                System.out.print(y[i][j]+"");
+            }
+            System.out.println("");
+        }
+    }
     //transpuesta//
     public static void trasnponer(int [][]x)
     {
-        for(int i=0;i<x.length;i++)
+        for(int i=0;i<x[i].length;i++)
         {
-            for(int j=0;j<x[i].length;j++)
+            for(int j=0;j<x.length;j++)
             {
-                System.out.println(x[j][i]+ " ");
+                System.out.print(x[j][i]+ " ");
             }
-            System.out.println();
+            System.out.println("");
         }
     }
     //burbuja//
@@ -344,7 +383,7 @@ public class Funcion
         int aux;
         for(int i=0;i<x.length;i++)
         {
-            for(int j = 0; j< x[i]; j++)
+            for(int j = 0; j< x.length; j++)
             {
                 if(x[j]<x[j+1])
                 {
