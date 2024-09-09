@@ -28,6 +28,7 @@ public class Funcion
             System.out.println("12.Promedio de arreglo");
             System.out.println("13.Metodo de burbuja.");
             System.out.println("14.trasnpuesta. ");
+            System.out.println("15.Rotar.");
             System.out.println("20.Salir");
             opc = leer.nextInt();
             switch (opc) {
@@ -114,6 +115,11 @@ public class Funcion
                     mostrar(num);
                     System.out.println("La matriz transpuesta es: ");
                     trasnponer(num);
+                } break;
+                case 15:
+                {
+                    arre=arreglo();
+                    rotar(arre);
                 } break;
                 case 20:
                 {
@@ -383,9 +389,9 @@ public class Funcion
         int aux;
         for(int i=0;i<x.length;i++)
         {
-            for(int j = 0; j< x.length; j++)
+            for(int j = 0; j< x.length -i -1; j++)
             {
-                if(x[j]<x[j+1])
+                if(x[j]>x[j+1])
                 {
                     aux=x[j];
                     x[j]=x[j+1];
@@ -393,7 +399,26 @@ public class Funcion
                 }
             }
         }
+        for (int z=0;z<x.length;z++)
+        {
+            System.out.print(x[z]);
+        }
+        System.out.println();
     }
+    public static void rotar(int []x)
+    {
+        for (int i=0;i<x.length;i++)
+        {
+            for (int j=0;j<1;j++)
+            {
+                x[j]=x[i];
+                x[i]=0;
+                System.out.print(x[i]+ " "+x[j]);
+            }
+            System.out.println();
+        }
+    }
+
     /*
 
 
