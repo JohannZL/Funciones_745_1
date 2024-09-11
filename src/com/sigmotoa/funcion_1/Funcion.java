@@ -1,6 +1,10 @@
 package com.sigmotoa.funcion_1;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.HashSet;
 
 public class Funcion
 {
@@ -29,6 +33,8 @@ public class Funcion
             System.out.println("13.Metodo de burbuja.");
             System.out.println("14.trasnpuesta. ");
             System.out.println("15.Rotar.");
+            System.out.println("16.Nombres");
+            System.out.println("17.Eliminar");
             System.out.println("20.Salir");
             opc = leer.nextInt();
             switch (opc) {
@@ -121,6 +127,14 @@ public class Funcion
                     arre=arreglo();
                     rotar(arre);
                 } break;
+                case 16:
+                {
+                    lista();
+                } break;
+                case 17:
+                {
+                    eliminar();
+                } break;
                 case 20:
                 {
                     System.out.println(name + "Hasta luego ");
@@ -169,11 +183,10 @@ public class Funcion
     //funcion 4//
     public static int Factorial(int x)
     {
-        int a,d,c;
-        a=x;
+        int d,c;
         d=1;
         c=1;
-        while(d<=a)
+        while(d<=x)
         {
             c=c*d;
             d++;
@@ -417,6 +430,51 @@ public class Funcion
             }
             System.out.println();
         }
+    }
+    public static void lista()
+    {
+        List<String> nombres=new ArrayList<>();
+        Scanner leer = new Scanner(System.in);
+        int opcion;
+        String nombre,name;
+        do
+        {
+            System.out.println("1.ingresar nombres: ");
+            System.out.println("2.buscar nombre");
+            System.out.println("3.Salir.");
+            opcion=leer.nextInt();
+            switch(opcion){
+                case 1:
+                {
+                    System.out.println("ingrese un nombre: ");
+                    nombre=leer.next();
+                    nombres.add(nombre);
+                } break;
+                case 2:
+                {
+                    System.out.println("indique el nombre a buscar: ");
+                    name=leer.next();
+                    System.out.println(nombres.contains(name));
+                } break;
+                case 3:
+                {
+                    System.out.println("Hasta luego");
+                }
+            }
+        }while(opcion!=3);
+    }
+    public static void eliminar()
+    {
+        Scanner leer = new Scanner(System.in);
+        int a;
+        Set<Integer> numeros=new HashSet<>();
+        for(int i=0;i<10;i++)
+        {
+            System.out.println("ingrese un numero: ");
+            a=leer.nextInt();
+            numeros.add(a);
+        }
+        System.out.println(numeros);
     }
 
     /*
