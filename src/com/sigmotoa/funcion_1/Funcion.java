@@ -14,6 +14,7 @@ public class Funcion
         int a,b,z,opc;
         int [][] num;
         int []arre;
+        int []arre2;
         int [][] bo;
         System.out.println("Hello, type your name");
         String name = leer.next();
@@ -35,6 +36,7 @@ public class Funcion
             System.out.println("15.Rotar.");
             System.out.println("16.Nombres");
             System.out.println("17.Eliminar");
+            System.out.println("18.Sumar arreglos");
             System.out.println("20.Salir");
             opc = leer.nextInt();
             switch (opc) {
@@ -134,6 +136,12 @@ public class Funcion
                 case 17:
                 {
                     eliminar();
+                } break;
+                case 18:
+                {
+                    arre=arreglo();
+                    arre2=arreglo();
+                    sumararreglos(arre,arre2);
                 } break;
                 case 20:
                 {
@@ -476,7 +484,26 @@ public class Funcion
         }
         System.out.println(numeros);
     }
+    public static void sumararreglos(int []x,int []y)
+    {
+        int []z=new int[x.length];
+        if(x.length==y.length)
+        {
+            for(int i=0;i<x.length;i++)
+            {
+                z[i]=x[i]+y[i];
+            }
+        } else
+        {
+            System.out.println("los arreglos no se pudeden sumar");
+        }
+        for(int i=0;i<x.length;i++)
+        {
+            System.out.print(z[i]+" ");
 
+        }
+        System.out.println();
+    }
     /*
 
 
